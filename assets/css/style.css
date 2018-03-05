@@ -5,11 +5,15 @@
 
 h1 {
     text-align: center;
-    color: blue;
+    color: rgba(0, 0, 255, 0.808);
+}
+
+img {
+    height: 350px;
+    width: 250;
+    text-align: center;
 }
 
 #button {
     text-align: center;
-
-
 }
