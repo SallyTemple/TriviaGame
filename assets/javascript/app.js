@@ -59,7 +59,7 @@ $(document).ready(function () {
 
         count: function () {
             OceanTriviaTimer.time;
-            console.log(ceanTriviaTimer);
+    
             if (oceanTriviaTimer.time > 0) {
                 $("#timer").html("<h3>" + ceanTriviaTimer.timne + " seconds remain</h3>");
             }
@@ -91,19 +91,16 @@ $(document).ready(function () {
     function questionSetUp() {
         index = 0;
         $("#question").append("<button id='start'>Start</button>");
-        $("#start").on("click", function () {
-            $(this).hide();
-            oceanTriviaTimer.start();
-            showQuestion(index);
+        $('#start')on('click', function(){
+            start();
+        })
         });
-    }
+
 
     function getAnswer() {
 
         $('.options').on('click', function() {
-          console.log('alert', index);
             index++;
-            console.log('click', index);
             $(".question").text('');
             $("#buttona").text('');
             $("#buttonb").text('');
@@ -115,13 +112,13 @@ $(document).ready(function () {
     function ansCorrect() {
         correct++;
         alert("correct!");
-        console.log("correct");
+  
     }
     
     function ansIncorrect() {
         incorrect++;
         alert("incorrect!");
-        console.log("incorrect");
+ 
     }
     
     function showResult() {
