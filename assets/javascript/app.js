@@ -3,72 +3,75 @@ $(document).ready(function () {
 
     // Create an object for the questions
 
-    
-    function correctAnswers(answer) { 
+
+    function correctAnswers(answer) {
         var correctAnswers = {
             a: 0,
             b: 0,
             c: 0,
         };
     }
+    window.onload = function () {
 
-    var questions = [
-        {
-            question1: "What is the color of the ocean?",
-            answers: {
-                a: "red",
-                b: "blue",
-                c: "yellow"
-            },
-            correctAnswer: "b"
-        },
-        {
-            question2: "Name the largest fish in the ocean?",
-            answers: {
-                a: "whale shark",
-                b: "red snapper",
-                c: "star fish"
-            },
-            correctAnswer: "a"
-        },
-        {
-            question3: "What is the slowest fish?",
-            answers: {
-                a: "mud fish",
-                b: "cod fish",
-                c: "dwarf seahorse",
 
+        var questions = [
+            {
+                question1: "What is the color of the ocean?",
+                answers: {
+                    a: "red",
+                    b: "blue",
+                    c: "yellow"
+                },
+                correctAnswer: "b"
             },
-            correctAnswer: "c"
-        },
-        {
-            question4: "Which is the warmest ocean??",
-            answers: {
-                a: "artic ocean",
-                b: "pacific ocean",
-                c: "indian ocean",
-
+            {
+                question2: "Name the largest fish in the ocean?",
+                answers: {
+                    a: "whale shark",
+                    b: "red snapper",
+                    c: "star fish"
+                },
+                correctAnswer: "a"
             },
-            correctAnswer: "c"
-        }
-        {
-            question5: "Which ocean has the most marine life?",
-            answers: {
-                a: "pacific ocean",
-                b: "artic ocean",
-                c: "atlantic ocean",
+            {
+                question3: "What is the slowest fish?",
+                answers: {
+                    a: "mud fish",
+                    b: "cod fish",
+                    c: "dwarf seahorse",
 
+                },
+                correctAnswer: "c"
             },
-            correctAnswer: "a"
-        }
-    ];
+            {
+                question4: "Which is the warmest ocean??",
+                answers: {
+                    a: "artic ocean",
+                    b: "pacific ocean",
+                    c: "indian ocean",
 
+                },
+                correctAnswer: "c"
+            },
+            {
+                question5: "Which ocean has the most marine life?",
+                answers: {
+                    a: "pacific ocean",
+                    b: "artic ocean",
+                    c: "atlantic ocean",
+
+                },
+                correctAnswer: "a"
+            }
+        ];
+
+    };
     var triviaQuestions = ["question1", "question2", "question3", "question4", "question5"];
-    
-    $( "#start" ).click(function() {
-        $( "#questions" ).click();
-      });
-      
+
+    //$( "#start" ).click(function() {
+    // $( "#questions" ).click();
+    // });
+
     // Create a timer Object:
 
     var index = 0;
@@ -109,6 +112,8 @@ $(document).ready(function () {
 
     };
 
-    
+    $("#startButton").on("click", function () {
+        document.getElementById(start).innerHTML;
 
+    })
 });
