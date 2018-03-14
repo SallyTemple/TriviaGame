@@ -68,14 +68,11 @@ $(document).ready(function () {
     };
     var triviaQuestions = ["question1", "question2", "question3", "question4", "question5"];
 
-    function myFunction() {
-        var x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
+   //Start game/ Hide questions/ Reveal questions
+   $(" #startButton").on("click", function (){
+            $("#wrapper").show();
+            $(this).hide();
+        });
 
     // Create a timer Object:
 var index = 0;
@@ -117,8 +114,24 @@ var index = 0;
 
     };
 
-    //$("#startButton").on("click", function () {
-    //document.getElementById(start).innerHTML;
+    // This function relates the user input to the questions
+    function questionContainer(data) {
 
-//})
+        for (var i = 0; i < answers.length; i++) {
+            ques = ques + "<input type='radio' name='"+data.id+"' value="+ i +">"+answers;
+    
+        }
+        return ques + "</form>";
+    }
+    window.formTemplate = formTemplate;
+    
+    function questionCreation(){
+        var questionChoices = ''
+        for (var i = 0; i<questions.length; i++) {
+            questionChoices = questionChoices + formTemplate(questions[i]);
+        }
+        $("#questions").append(questionChoices);
+    
+    }
+
 });
