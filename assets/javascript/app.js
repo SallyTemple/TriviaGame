@@ -68,28 +68,33 @@ $(document).ready(function () {
     };
     var triviaQuestions = ["question1", "question2", "question3", "question4", "question5"];
 
-    //$( "#start" ).click(function() {
-    // $( "#questions" ).click();
-    // });
+    function myFunction() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 
     // Create a timer Object:
-
-    var index = 0;
+var index = 0;
     var oceanTriviaTimer = {
-        time: 25,
+        time: 30,
+       // Start Function 
         start: function () {
             timeCounter = setInterval(oceanTriviaTimer.count, 1000);
         },
-
+//Stop Function
         stop: function () {
             clearInterval(timeCounter)
         },
-
+//Reset Function
         reset: function () {
             this.time = 25;
             $("#timer").html("<h3>" + this.time + " seconds remaining </h3>");
         },
-
+//Count Function
         count: function () {
             OceanTriviaTimer.time;
 
@@ -112,8 +117,8 @@ $(document).ready(function () {
 
     };
 
-    $("#startButton").on("click", function () {
-        document.getElementById(start).innerHTML;
+    //$("#startButton").on("click", function () {
+    //document.getElementById(start).innerHTML;
 
-    })
+//})
 });
