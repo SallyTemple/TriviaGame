@@ -49,3 +49,11 @@ button {
     font-size: 45px;
 
 }
+
+#done {
+    text-align: center;
+   width:20%;
+    color:whitesmoke;
+   font-size: 15px;
+
+}

@@ -1,133 +1,145 @@
-// $(document).ready(function () {
+var panel = $("#questions");
 
+// Question set
+var questions = [{
+  question: "What is the color of the ocean?",
+  answers: ["red", "blue", "yellow"],
+  correctAnswer: "blue"
+}, {
+  question: "Name the largest fish in the ocean?",
+  answers: ["whale shark", "red snapper", "star fish"],
+  correctAnswer: "whale shark"
+}, {
+  question: "What is the slowest fish?",
+  answers: ["mud fish", "cod fish", "dwarf seahorse"],
+  correctAnswer: "cod fish"
+}, {
+  question: "Which is the warmest ocean?",
+  answers: ["artic ocean", "pacific ocean", "indian ocean"],
+  correctAnswer: "pacific ocean"
+}, {
+  question: "Which ocean has the most marine life?",
+  answers: ["pacific ocean", "artic ocean", "atlantic ocean"],
+  correctAnswer: "pacific ocean"
+}];
 
-    // Create an object for the questions
+// Variable that will hold the setInterval
+var timer;
 
-    var correctAnswers = {
-        a: 0,
-        b: 0,
-        c: 0,
-    };
+var game = {
 
+  correct: 0,
+  incorrect: 0,
+  counter: 120,
 
-        var questions = [
-            {
-                question1: "What is the color of the ocean?",
-                answers: {
-                    a: "red",
-                    b: "blue",
-                    c: "yellow"
-                },
-                correctAnswer: "b"
-            },
-            {
-                question2: "Name the largest fish in the ocean?",
-                answers: {
-                    a: "whale shark",
-                    b: "red snapper",
-                    c: "star fish"
-                },
-                correctAnswer: "a"
-            },
-            {
-                question3: "What is the slowest fish?",
-                answers: {
-                    a: "mud fish",
-                    b: "cod fish",
-                    c: "dwarf seahorse",
-
-                },
-                correctAnswer: "c"
-            },
-            {
-                question4: "Which is the warmest ocean??",
-                answers: {
-                    a: "artic ocean",
-                    b: "pacific ocean",
-                    c: "indian ocean",
-
-                },
-                correctAnswer: "c"
-            },
-            {
-                question5: "Which ocean has the most marine life?",
-                answers: {
-                    a: "pacific ocean",
-                    b: "artic ocean",
-                    c: "atlantic ocean",
-
-                },
-                correctAnswer: "a"
-            }
-        ];
-
-    };
-    var triviaQuestions = ["question1", "question2", "question3", "question4", "question5"];
-
-   //Start game/ Hide questions/ Reveal questions
-   $(" #startButton").on("click", function (){
-            $("#wrapper").show();
-            $(this).hide();
-        });
-
-    // Create a timer Object:
-var index = 0;
-    var oceanTriviaTimer = {
-        time: 60,
-       // Start Function 
-        start: function () {
-            timeCounter = setInterval(oceanTriviaTimer.count, 1000);
-        },
-//Stop Function
-        stop: function () {
-            clearInterval(timeCounter)
-        },
-//Reset Function
-        reset: function () {
-            this.time = 60;
-            $("#timer").html("<h3>" + this.time + " seconds remaining </h3>");
-        },
-//Count Function
-        count: function () {
-            OceanTriviaTimer.time;
-
-            if (oceanTriviaTimer.time > 0) {
-                $("#timer").html("<h3>" + ceanTriviaTimer.time + " seconds remain</h3>");
-            }
-            else {
-                index++;
-                incorrectAns();
-                OceanTriviaTimer.reset();
-            }
-
-            if (index < triviaQuestions.length) {
-                showQuestion(index);
-            }
-            else {
-                $(".options").hide();
-            }
-        }
-
-    };
-
-    // This function relates the user input to the questions
-    function questionContainer(data) {
-
-        for (var i = 0; i < answers.length; i++) {
-            ques = ques + "<input type='radio' name='"+data.id+"' value="+ i +">"+answers;
-    
-        }
-        return ques + "</form>";
+  countdown: function() {
+    game.counter--;
+    $("#counter-number").html(game.counter);
+    if (game.counter === 0) {
+      console.log("TIME UP");
+      game.done();
     }
-    window.formTemplate = formTemplate;
-    
-    function questionCreation(){
-        var questionChoices = ''
-        for (var i = 0; i<questions.length; i++) {
-            questionChoices = questionChoices + formTemplate(questions[i]);
-        }
-        $("#questions").append(questionChoices);
-    
+  },
+
+  startButton: function() {
+    timer = setInterval(game.countdown, 1000);
+
+    $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>120</span> Seconds</h2>");
+
+    $("#startButton").remove();
+
+    for (var i = 0; i < questions.length; i++) {
+      panel.append("<h2>" + questions[i].question + "</h2>");
+      for (var j = 0; j < questions[i].answers.length; j++) {
+        panel.append("<input type='radio' name='question-" + i +
+        "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
+      }
     }
 
-// });
+    panel.append("<button id='done'>Done</button>");
+  },
+
+  done: function() {
+
+    $.each($("input[name='question-0']:checked"), function() {
+      if ($(this).val() === questions[0].correctAnswer) {
+        game.correct++;
+      }
+      else {
+        game.incorrect++;
+      }
+    });
+
+    $.each($("input[name='question-1']:checked"), function() {
+      if ($(this).val() === questions[1].correctAnswer) {
+        game.correct++;
+      }
+      else {
+        game.incorrect++;
+      }
+    });
+
+    $.each($("input[name='question-2']:checked"), function() {
+      if ($(this).val() === questions[2].correctAnswer) {
+        game.correct++;
+      }
+      else {
+        game.incorrect++;
+      }
+    });
+
+    $.each($("input[name='question-3']:checked"), function() {
+      if ($(this).val() === questions[3].correctAnswer) {
+        game.correct++;
+      }
+      else {
+        game.incorrect++;
+      }
+    });
+
+    $.each($("input[name='question-4']:checked"), function() {
+      if ($(this).val() === questions[4].correctAnswer) {
+        game.correct++;
+      }
+      else {
+        game.incorrect++;
+      }
+    });
+
+    $.each($("input[name='question-5']:checked"), function() {
+      if ($(this).val() === questions[5].correctAnswer) {
+        game.correct++;
+      }
+      else {
+        game.incorrect++;
+      }
+    });
+
+   
+    this.result();
+
+  },
+
+  result: function() {
+
+    clearInterval(timer);
+
+    $("#sub-wrapper h2").remove();
+
+    panel.html("<h2>All Done!</h2>");
+    panel.append("<h3>Correct Answers: " + this.correct + "</h3>");
+    panel.append("<h3>Incorrect Answers: " + this.incorrect + "</h3>");
+    panel.append("<h3>Unanswered: " + (questions.length - (this.incorrect + this.correct)) + "</h3>");
+  }
+};
+
+// CLICK EVENTS
+
+$(document).on("click", "#startButton", function() {
+  game.startButton();
+});
+
+
+$(document).on("click", "#done", function() {
+  game.done();
+});
