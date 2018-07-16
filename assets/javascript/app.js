@@ -3,15 +3,11 @@ $(document).ready(function () {
 
     // Create an object for the questions
 
-
-    function correctAnswers(answer) {
-        var correctAnswers = {
-            a: 0,
-            b: 0,
-            c: 0,
-        };
-    }
-    window.onload = function () {
+    var correctAnswers = {
+        a: 0,
+        b: 0,
+        c: 0,
+    };
 
 
         var questions = [
@@ -96,7 +92,7 @@ var index = 0;
             OceanTriviaTimer.time;
 
             if (oceanTriviaTimer.time > 0) {
-                $("#timer").html("<h3>" + ceanTriviaTimer.timne + " seconds remain</h3>");
+                $("#timer").html("<h3>" + ceanTriviaTimer.time + " seconds remain</h3>");
             }
             else {
                 index++;
