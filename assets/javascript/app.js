@@ -1,4 +1,4 @@
-$(document).ready(function () {
+// $(document).ready(function () {
 
 
     // Create an object for the questions
@@ -73,7 +73,7 @@ $(document).ready(function () {
     // Create a timer Object:
 var index = 0;
     var oceanTriviaTimer = {
-        time: 30,
+        time: 60,
        // Start Function 
         start: function () {
             timeCounter = setInterval(oceanTriviaTimer.count, 1000);
@@ -84,7 +84,7 @@ var index = 0;
         },
 //Reset Function
         reset: function () {
-            this.time = 25;
+            this.time = 60;
             $("#timer").html("<h3>" + this.time + " seconds remaining </h3>");
         },
 //Count Function
@@ -130,4 +130,4 @@ var index = 0;
     
     }
 
-});
+// });
